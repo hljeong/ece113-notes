@@ -233,8 +233,70 @@
 
 ## constant coefficient difference equation
 - $x[n] \to \boxed{S} \to y[n] = S\left \{ x[n] \right \}$
-- todo
+- $\sum_{k = 0}^M a_k y[n - k] = \sum_{k = 0}^N b_k x[n - k]$
+- $a_0, \dots, a_M, b_0, \dots, b_N$: constant coefficients
+- $M, N$: order of the equation
+  - often, $\max\left \{ M, N \right \}$ to get the system order
+- e.g. $y[n] = \frac{1}{N} \sum_{k = 0}^{N - 1} x[k]$
+  - $a_0 = 1$
+  - $b_0, \dots, b_{N - 1} = \frac{1}{N}$
+  - order: $N - 1$
+  - length $N$ moving average
+- e.g. exponential smoother
+  - $y[n] = (1 - \alpha) y[n - 1] + \alpha x[n]$
+  - $0 < \alpha < 1$
+  - $a_0 = 1, a_1 = \alpha - 1$
+  - $M = 1$
+  - $b_0 = \alpha$
+  - $N = 0$
+  - because $\left \{ a_1, \dots, a_M \right \} \neq \left \{ 0 \right \}$, this system is recursive, or, equivalently, has feedback
+- if a system has feedback, then we need to know the *initial condition* of the system
+  - initial condition is the time when input is applied
+- e.g. $y[n] = y[n - 1] + x[n]$
+  - suppose $x[n] = u[n] = \begin{cases}
+    1 & n \geq 0 \\ 
+    0 & n < 0
+  \end{cases}$
+  - $y[0] = y[-1] + x[0], y[-1] = y[-2] + x[-1], \dots$
+  - initial condition: $y[-1] = 2$
+  - $y[-1] = 2, y[0] = y[-1] + x[0] = 2 + 1 = 3, y[1] = y[0] + x[1] = 3 + 1 = 4, \dots$
+  - $y[-1] = 3 \Rightarrow y[0] = 4, y[1] = 5, \dots$
+- "relaxed system": a system is relaxed if $y[n] = 0$ for $n \to \infty$
+- are relaxed systems described by a constant coefficient difference equation lti?
 
+## visual method to look at ccds
+- $\sum_{k = 0}^M a_k y[n - k] = \sum_{k = 0}^N b_k x[n - k]$
+- e.g. delay element
+  - "unit delay"
+
+  ![](img/10.5.0.png)
+- e.g. multiplier
+  - constant multiplier
+
+  ![](img/10.5.1.png)
+- e.g. adder
+  
+  ![](img/10.5.2.png)
+- e.g. branch
+
+  ![](img/10.5.3.png)
+- block diagram for $y[n] = 2 x[n] + 3 x[n - 1]$
+
+  ![](img/10.5.4.png)
+
+## impulse response
+- $\delta[n] \to \boxed{S} \to h[n] := S\left \{ \delta[n] \right \}$
+- recall: when a system is lti, then we have an expression for the output with respect to an arbitrary $x[n]$
+- $x[n] = \sum_{k = -\infty}^\infty x[k] \delta[n - k]$
+- $y[n] = S\left \{ x[n] \right \} = S\left \{ \sum_{-\infty}^\infty x[k] \delta[n - k] \right \} = \sum_{k = -\infty}^\infty S\left \{ \delta[n - k] \right \} = \sum_{-\infty}^\infty x[k] h[n - k] = x[n] * h[n]$
+
+## convolution properties
+- commutative: $x_1[n] * x_2[n] = x_2[n] * x_1[n]$
+- distributive: $x[n] * (h_1[n] + h_2[n]) = x[n] * h_1[n] + x[n] * h_2[n]$
+- associative: $x_1[n] * (x_2[n] * x_3[n]) = (x_1[n] * x_2[n]) * x_3[n]$
+- identity: $x[n] * \delta[n] = x[n]$
+  - $x[n] * \delta[n - m] = x[n - m]$
+  
 # 10.10 3m
 
 ## simple discrete-time convolution
