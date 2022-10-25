@@ -87,7 +87,7 @@
 ## sinusoidal signals
 - $x(t) = A \cos(\omega_0 t + B)$, $\omega_0 = 2 \pi f_0$
 - $x[n] = A \cos(\Omega_0 n + \theta)$, $\Omega_0 = 2 \pi F_0 \in [-\pi, \pi)$ where $F_0$ is the normalized frequency
-- $x[n] A \cos(2 \pi f_0 n T_0 + \theta) = A \cos \left (2 \pi \frac{f_0}{f_s} n + \theta \right )$
+- $x[n] = A \cos(2 \pi f_0 n T_0 + \theta) = A \cos \left (2 \pi \frac{f_0}{f_s} n + \theta \right )$
 - $F_n := \frac{f_0}{f_s} < 1$
 
 ## complex exponential
