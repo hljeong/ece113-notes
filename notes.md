@@ -79,7 +79,7 @@
   - 102: $r(t) = t u(t)$
   - $r[n] = n \cdot u[n] = \sum_{k = 1}^\infty u[n - k]$
 
-## how wan se express $x[n]$ using basic signals?
+## how can we express $x[n]$ using basic signals?
 - generic signal representation using the "canonical basis" of $\left \{ \delta[n - k] \forall \, k \right \}$
 - $x[n] = \left \{ 1, 2, (0), 1, 1 \right \}$
 - $x[n] = \delta[n + 2] + 2 \delta[n + 1] + \delta[n - 1] - \delta[n - 2]$
