@@ -376,7 +376,7 @@
      0 & k \neq m \\ 
      1 & k = m
   \end{cases}$
-  - e.g. $y_0 = \frac{1}{\sqrt 2} \begin{bmatrix} 1 \\ 1 \end{bmatrix}$ and $y_1 ql \frac{1}{\sqrt 2} \begin{bmatrix} 1 & -1 \end{bmatrix}$ are orthonormal
+  - e.g. $y_0 = \frac{1}{\sqrt 2} \begin{bmatrix} 1 \\ 1 \end{bmatrix}$ and $y_1 = \frac{1}{\sqrt 2} \begin{bmatrix} 1 & -1 \end{bmatrix}$ are orthonormal
 - synthesis: given a basis and coefficients, synthesize vectors
   - $c_0 = \sqrt 2, c_1 = \sqrt 2 \cdot 5$
   - $x = \sum c_k y_k = \begin{bmatrix} 6 \\ -4 \end{bmatrix}$
